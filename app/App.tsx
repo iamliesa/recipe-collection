@@ -1,17 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState, useCallback } from "react";
 import { Search, Plus, Leaf, SlidersHorizontal } from "lucide-react";
-import { getRecipes, deleteRecipe, ALL_CATEGORIES } from "../lib/recipes";
-import type { Recipe } from "../lib/recipes";
-import { RecipeCard } from "../components/RecipeCard";
-import { RecipeDetail } from "../components/RecipeDetail";
-import { AddRecipeForm } from "../components/AddRecipeForm";
+import { getRecipes, deleteRecipe, ALL_CATEGORIES } from "./lib/recipes";
+import type { Recipe } from "./lib/recipes";
+import { RecipeCard } from "./components/RecipeCard";
+import { RecipeDetail } from "./components/RecipeDetail";
+import { AddRecipeForm } from "./components/AddRecipeForm";
 
-export const Route = createFileRoute("/")({
-  component: Home,
-});
-
-function Home() {
+export function App() {
   const [recipes, setRecipes] = useState<Recipe[]>(() => getRecipes());
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -34,6 +29,11 @@ function Home() {
       !selectedCategory || recipe.categories.includes(selectedCategory);
     return matchesSearch && matchesCategory;
   });
+
+  function handleDelete(id: string) {
+    deleteRecipe(id);
+    refreshRecipes();
+  }
 
   if (selectedRecipe) {
     return (
@@ -185,9 +185,4 @@ function Home() {
       )}
     </div>
   );
-
-  function handleDelete(id: string) {
-    deleteRecipe(id);
-    refreshRecipes();
-  }
 }
