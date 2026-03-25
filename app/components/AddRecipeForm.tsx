@@ -133,42 +133,54 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
     onSaved();
   }
 
+  const inputClass =
+    "w-full px-4 py-2.5 bg-cream border border-parchment rounded-xl text-bark placeholder:text-bark-faint font-body text-[15px]";
+  const smallInputClass =
+    "flex-1 px-3.5 py-2 bg-cream border border-parchment rounded-xl text-bark placeholder:text-bark-faint font-body text-sm";
+
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-start justify-center overflow-y-auto p-4 pt-8 sm:pt-16">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg relative">
-        <div className="flex items-center justify-between p-6 border-b border-stone-100">
-          <h2 className="text-xl font-bold text-stone-800">Add New Recipe</h2>
+    <div className="fixed inset-0 backdrop-enter bg-bark/30 backdrop-blur-sm z-50 flex items-start justify-center overflow-y-auto p-4 pt-8 sm:pt-12">
+      <div className="modal-enter bg-cream-dark rounded-2xl shadow-2xl shadow-bark/20 w-full max-w-lg relative border border-parchment/80">
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-parchment/60">
+          <h2 className="font-display text-2xl font-bold text-bark">
+            New Recipe
+          </h2>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg hover:bg-stone-100 transition-colors"
+            className="p-2 rounded-xl hover:bg-parchment/50 transition-colors"
           >
-            <X className="w-5 h-5 text-stone-500" />
+            <X className="w-5 h-5 text-bark-muted" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           {/* Paste helper */}
-          <div>
+          <div className="bg-olive-ghost rounded-xl p-4 border border-olive-pale/50">
             <button
               type="button"
               onClick={() => setPasteMode(!pasteMode)}
-              className="flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold text-olive hover:text-olive-light transition-colors"
             >
               <ClipboardPaste className="w-4 h-4" />
               Paste recipe text to auto-fill
             </button>
+            <p className="text-xs text-bark-muted mt-1">
+              Copy text from Instagram, a website, or anywhere — the app will
+              try to sort it into ingredients and steps.
+            </p>
             {pasteMode && (
               <div className="mt-3 space-y-2">
                 <textarea
                   value={pasteText}
                   onChange={(e) => setPasteText(e.target.value)}
-                  placeholder="Paste the full recipe text here (from Instagram, a website, etc.). The app will try to separate ingredients from steps for you."
-                  className="w-full h-40 px-4 py-3 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none"
+                  placeholder="Paste the full recipe text here..."
+                  className="w-full h-36 px-4 py-3 bg-white border border-parchment rounded-xl text-sm text-bark placeholder:text-bark-faint font-body resize-none"
                 />
                 <button
                   type="button"
                   onClick={parsePastedText}
-                  className="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-medium hover:bg-emerald-200 transition-colors"
+                  className="px-4 py-2 bg-olive text-white rounded-xl text-sm font-semibold hover:bg-olive-light transition-colors"
                 >
                   Auto-fill from text
                 </button>
@@ -178,7 +190,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
 
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-semibold text-bark mb-1.5">
               Recipe Name
             </label>
             <input
@@ -186,14 +198,14 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Gesunder Nudelauflauf"
-              className="w-full px-4 py-2.5 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+              className={inputClass}
               required
             />
           </div>
 
           {/* Image */}
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-semibold text-bark mb-1.5">
               Photo
             </label>
             <input
@@ -204,27 +216,27 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
               className="hidden"
             />
             {image ? (
-              <div className="relative">
+              <div className="relative rounded-xl overflow-hidden">
                 <img
                   src={image}
                   alt="Recipe"
-                  className="w-full h-40 object-cover rounded-xl"
+                  className="w-full h-36 object-cover"
                 />
                 <button
                   type="button"
                   onClick={() => setImage(undefined)}
-                  className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-lg hover:bg-white transition-colors"
+                  className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-lg hover:bg-white transition-colors shadow-sm"
                 >
-                  <X className="w-4 h-4 text-stone-600" />
+                  <X className="w-4 h-4 text-bark" />
                 </button>
               </div>
             ) : (
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="w-full h-28 border-2 border-dashed border-stone-200 rounded-xl flex flex-col items-center justify-center gap-2 text-stone-400 hover:border-emerald-300 hover:text-emerald-500 transition-colors"
+                className="w-full h-24 border-2 border-dashed border-parchment rounded-xl flex flex-col items-center justify-center gap-2 text-bark-muted hover:border-olive/40 hover:text-olive hover:bg-olive-ghost/50 transition-all"
               >
-                <ImagePlus className="w-6 h-6" />
+                <ImagePlus className="w-5 h-5" />
                 <span className="text-sm">Upload a photo or screenshot</span>
               </button>
             )}
@@ -232,24 +244,25 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
 
           {/* Ingredients */}
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-semibold text-bark mb-2">
               Ingredients
             </label>
             <div className="space-y-2">
               {ingredients.map((ing, i) => (
-                <div key={i} className="flex gap-2">
+                <div key={i} className="flex gap-2 items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-terracotta shrink-0" />
                   <input
                     type="text"
                     value={ing}
                     onChange={(e) => updateIngredient(i, e.target.value)}
                     placeholder={`Ingredient ${i + 1}`}
-                    className="flex-1 px-4 py-2 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className={smallInputClass}
                   />
                   {ingredients.length > 1 && (
                     <button
                       type="button"
                       onClick={() => removeIngredient(i)}
-                      className="p-2 text-stone-300 hover:text-red-500 transition-colors"
+                      className="p-1.5 text-bark-faint hover:text-terracotta transition-colors"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
@@ -260,7 +273,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
             <button
               type="button"
               onClick={addIngredient}
-              className="flex items-center gap-1.5 mt-2 text-sm text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-1.5 mt-2.5 text-sm font-medium text-olive hover:text-olive-light transition-colors"
             >
               <Plus className="w-4 h-4" />
               Add ingredient
@@ -269,27 +282,27 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
 
           {/* Steps */}
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-semibold text-bark mb-2">
               Steps
             </label>
             <div className="space-y-2">
               {steps.map((step, i) => (
-                <div key={i} className="flex gap-2">
-                  <span className="flex items-center justify-center w-7 h-9 text-xs font-semibold text-emerald-600">
-                    {i + 1}.
+                <div key={i} className="flex gap-2 items-center">
+                  <span className="w-5 h-5 flex items-center justify-center rounded-full bg-olive-ghost text-olive text-xs font-bold border border-olive-pale/60 shrink-0">
+                    {i + 1}
                   </span>
                   <input
                     type="text"
                     value={step}
                     onChange={(e) => updateStep(i, e.target.value)}
                     placeholder={`Step ${i + 1}`}
-                    className="flex-1 px-4 py-2 border border-stone-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className={smallInputClass}
                   />
                   {steps.length > 1 && (
                     <button
                       type="button"
                       onClick={() => removeStep(i)}
-                      className="p-2 text-stone-300 hover:text-red-500 transition-colors"
+                      className="p-1.5 text-bark-faint hover:text-terracotta transition-colors"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
@@ -300,7 +313,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
             <button
               type="button"
               onClick={addStep}
-              className="flex items-center gap-1.5 mt-2 text-sm text-emerald-600 hover:text-emerald-700 transition-colors"
+              className="flex items-center gap-1.5 mt-2.5 text-sm font-medium text-olive hover:text-olive-light transition-colors"
             >
               <Plus className="w-4 h-4" />
               Add step
@@ -309,7 +322,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
 
           {/* Categories */}
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-2">
+            <label className="block text-sm font-semibold text-bark mb-2">
               Categories
             </label>
             <div className="flex flex-wrap gap-2">
@@ -318,10 +331,10 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
                   key={cat}
                   type="button"
                   onClick={() => toggleCategory(cat)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-3.5 py-1.5 rounded-full text-sm font-medium border transition-all ${
                     categories.includes(cat)
-                      ? "bg-emerald-600 text-white"
-                      : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                      ? "bg-olive text-white border-olive shadow-sm"
+                      : "bg-white text-bark-light border-parchment hover:border-olive/30 hover:bg-olive-ghost"
                   }`}
                 >
                   {cat}
@@ -332,7 +345,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
 
           {/* Source */}
           <div>
-            <label className="block text-sm font-medium text-stone-700 mb-1.5">
+            <label className="block text-sm font-semibold text-bark mb-1.5">
               Where is this recipe from?
             </label>
             <input
@@ -340,14 +353,14 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
               value={source}
               onChange={(e) => setSource(e.target.value)}
               placeholder="e.g. Instagram, Screenshot, Website..."
-              className="w-full px-4 py-2.5 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+              className={inputClass}
             />
           </div>
 
           {/* Submit */}
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-colors"
+            className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 bg-olive text-white font-semibold rounded-xl hover:bg-olive-light transition-colors shadow-md shadow-olive/20 hover:shadow-lg hover:shadow-olive/30"
           >
             <Save className="w-5 h-5" />
             Save Recipe

@@ -1,1 +1,92 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Outfit", sans-serif;
+
+  --color-cream: #faf6f1;
+  --color-cream-dark: #f0e9df;
+  --color-parchment: #ede4d6;
+  --color-olive: #4a5d3a;
+  --color-olive-light: #6b8255;
+  --color-olive-pale: #e8eddf;
+  --color-olive-ghost: #f3f5ee;
+  --color-terracotta: #c4654a;
+  --color-terracotta-light: #e8a593;
+  --color-terracotta-pale: #fdf0ec;
+  --color-bark: #3d3229;
+  --color-bark-light: #6b5d52;
+  --color-bark-muted: #9a8b7d;
+  --color-bark-faint: #c5b9ad;
+}
+
+html {
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-bark);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(74, 93, 58, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(196, 101, 74, 0.03) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-bark-faint); border-radius: 999px; }
+
+/* Smooth transitions on interactive elements */
+button, a, input, textarea {
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-olive-light);
+  border-color: transparent !important;
+}
+
+/* Staggered card entrance */
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-enter {
+  animation: card-in 0.5s ease both;
+}
+
+/* Modal entrance */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-enter {
+  animation: modal-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.backdrop-enter {
+  animation: backdrop-in 0.25s ease both;
+}

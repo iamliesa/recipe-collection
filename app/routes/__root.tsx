@@ -18,6 +18,14 @@ export const Route = createRootRoute({
         content: "Your personal healthy recipe collection",
       },
     ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+    ],
   }),
   component: RootComponent,
 });
@@ -36,7 +44,7 @@ function RootDocument({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-stone-50 text-stone-900 antialiased min-h-screen">
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
