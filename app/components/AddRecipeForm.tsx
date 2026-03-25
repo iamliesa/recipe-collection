@@ -6,8 +6,11 @@ import {
   ImagePlus,
   ClipboardPaste,
   Save,
+  Link,
+  Loader2,
 } from "lucide-react";
 import { ALL_CATEGORIES, saveRecipe } from "../lib/recipes";
+import { importFromUrl } from "../lib/import-url";
 
 interface AddRecipeFormProps {
   onClose: () => void;
@@ -23,6 +26,10 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
   const [image, setImage] = useState<string | undefined>();
   const [pasteMode, setPasteMode] = useState(false);
   const [pasteText, setPasteText] = useState("");
+  const [urlMode, setUrlMode] = useState(false);
+  const [urlInput, setUrlInput] = useState("");
+  const [urlLoading, setUrlLoading] = useState(false);
+  const [urlError, setUrlError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   function addIngredient() {
@@ -116,6 +123,30 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
     setPasteText("");
   }
 
+  async function handleUrlImport() {
+    if (!urlInput.trim()) return;
+    setUrlLoading(true);
+    setUrlError("");
+    try {
+      const recipe = await importFromUrl(urlInput.trim());
+      if (recipe.title) setTitle(recipe.title);
+      if (recipe.ingredients.length > 0) setIngredients(recipe.ingredients);
+      if (recipe.steps.length > 0) setSteps(recipe.steps);
+      if (recipe.image) setImage(recipe.image);
+      if (recipe.source) setSource(recipe.source);
+      setUrlMode(false);
+      setUrlInput("");
+    } catch (err) {
+      setUrlError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Try copying the recipe text and using the paste feature instead."
+      );
+    } finally {
+      setUrlLoading(false);
+    }
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const cleanIngredients = ingredients.filter((i) => i.trim());
@@ -155,37 +186,90 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          {/* Paste helper */}
-          <div className="bg-olive-ghost rounded-xl p-4 border border-olive-pale/50">
-            <button
-              type="button"
-              onClick={() => setPasteMode(!pasteMode)}
-              className="flex items-center gap-2 text-sm font-semibold text-olive hover:text-olive-light transition-colors"
-            >
-              <ClipboardPaste className="w-4 h-4" />
-              Paste recipe text to auto-fill
-            </button>
-            <p className="text-xs text-bark-muted mt-1">
-              Copy text from Instagram, a website, or anywhere — the app will
-              try to sort it into ingredients and steps.
+          {/* Import helpers */}
+          <div className="bg-olive-ghost rounded-xl p-4 border border-olive-pale/50 space-y-3">
+            <p className="text-xs font-semibold text-olive uppercase tracking-wide">
+              Quick import
             </p>
-            {pasteMode && (
-              <div className="mt-3 space-y-2">
-                <textarea
-                  value={pasteText}
-                  onChange={(e) => setPasteText(e.target.value)}
-                  placeholder="Paste the full recipe text here..."
-                  className="w-full h-36 px-4 py-3 bg-white border border-parchment rounded-xl text-sm text-bark placeholder:text-bark-faint font-body resize-none"
-                />
-                <button
-                  type="button"
-                  onClick={parsePastedText}
-                  className="px-4 py-2 bg-olive text-white rounded-xl text-sm font-semibold hover:bg-olive-light transition-colors"
-                >
-                  Auto-fill from text
-                </button>
-              </div>
-            )}
+
+            {/* URL import */}
+            <div>
+              <button
+                type="button"
+                onClick={() => { setUrlMode(!urlMode); setPasteMode(false); }}
+                className="flex items-center gap-2 text-sm font-semibold text-olive hover:text-olive-light transition-colors"
+              >
+                <Link className="w-4 h-4" />
+                Import from website URL
+              </button>
+              <p className="text-xs text-bark-muted mt-0.5">
+                Paste a link to a recipe website — the app will try to grab the title,
+                ingredients, and steps automatically.
+              </p>
+              {urlMode && (
+                <div className="mt-3 space-y-2">
+                  <div className="flex gap-2">
+                    <input
+                      type="url"
+                      value={urlInput}
+                      onChange={(e) => { setUrlInput(e.target.value); setUrlError(""); }}
+                      placeholder="https://www.example.com/recipe..."
+                      className="flex-1 px-3.5 py-2 bg-white border border-parchment rounded-xl text-sm text-bark placeholder:text-bark-faint font-body"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleUrlImport}
+                      disabled={urlLoading || !urlInput.trim()}
+                      className="px-4 py-2 bg-olive text-white rounded-xl text-sm font-semibold hover:bg-olive-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    >
+                      {urlLoading ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        "Import"
+                      )}
+                    </button>
+                  </div>
+                  {urlError && (
+                    <p className="text-xs text-terracotta">{urlError}</p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="border-t border-olive-pale/50" />
+
+            {/* Paste text */}
+            <div>
+              <button
+                type="button"
+                onClick={() => { setPasteMode(!pasteMode); setUrlMode(false); }}
+                className="flex items-center gap-2 text-sm font-semibold text-olive hover:text-olive-light transition-colors"
+              >
+                <ClipboardPaste className="w-4 h-4" />
+                Paste recipe text to auto-fill
+              </button>
+              <p className="text-xs text-bark-muted mt-0.5">
+                Copy text from Instagram, a website, or anywhere — the app will
+                try to sort it into ingredients and steps.
+              </p>
+              {pasteMode && (
+                <div className="mt-3 space-y-2">
+                  <textarea
+                    value={pasteText}
+                    onChange={(e) => setPasteText(e.target.value)}
+                    placeholder="Paste the full recipe text here..."
+                    className="w-full h-36 px-4 py-3 bg-white border border-parchment rounded-xl text-sm text-bark placeholder:text-bark-faint font-body resize-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={parsePastedText}
+                    className="px-4 py-2 bg-olive text-white rounded-xl text-sm font-semibold hover:bg-olive-light transition-colors"
+                  >
+                    Auto-fill from text
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Title */}
