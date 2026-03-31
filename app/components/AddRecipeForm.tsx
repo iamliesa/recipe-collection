@@ -8,9 +8,11 @@ import {
   Save,
   Link,
   Loader2,
+  ScanText,
 } from "lucide-react";
 import { ALL_CATEGORIES, saveRecipe } from "../lib/recipes";
 import { importFromUrl } from "../lib/import-url";
+import { extractTextFromImage } from "../lib/ocr";
 
 interface AddRecipeFormProps {
   onClose: () => void;
@@ -30,7 +32,13 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
   const [urlInput, setUrlInput] = useState("");
   const [urlLoading, setUrlLoading] = useState(false);
   const [urlError, setUrlError] = useState("");
+  const [ocrMode, setOcrMode] = useState(false);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const [ocrProgress, setOcrProgress] = useState(0);
+  const [ocrError, setOcrError] = useState("");
+  const [ocrExtractedText, setOcrExtractedText] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const ocrFileInputRef = useRef<HTMLInputElement>(null);
 
   function addIngredient() {
     setIngredients([...ingredients, ""]);
@@ -147,6 +155,34 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
     }
   }
 
+  async function handleOcrUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setOcrLoading(true);
+    setOcrProgress(0);
+    setOcrError("");
+    setOcrExtractedText("");
+    try {
+      const result = await extractTextFromImage(file, setOcrProgress);
+      setOcrExtractedText(result.text);
+      if (result.ingredients.length > 0) setIngredients(result.ingredients);
+      if (result.steps.length > 0) setSteps(result.steps);
+      if (result.ingredients.length === 0 && result.steps.length === 0) {
+        setOcrError(
+          "The text was read, but the app couldn't clearly separate ingredients from steps. You can review the extracted text below and adjust the fields manually."
+        );
+      }
+    } catch {
+      setOcrError(
+        "Could not read text from this image. Try a clearer screenshot or use the paste option instead."
+      );
+    } finally {
+      setOcrLoading(false);
+      // Reset the file input so the same file can be selected again
+      if (ocrFileInputRef.current) ocrFileInputRef.current.value = "";
+    }
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const cleanIngredients = ingredients.filter((i) => i.trim());
@@ -231,6 +267,74 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
                   </div>
                   {urlError && (
                     <p className="text-xs text-terracotta">{urlError}</p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="border-t border-olive-pale/50" />
+
+            {/* Screenshot scan */}
+            <div>
+              <button
+                type="button"
+                onClick={() => { setOcrMode(!ocrMode); setUrlMode(false); setPasteMode(false); }}
+                className="flex items-center gap-2 text-sm font-semibold text-olive hover:text-olive-light transition-colors"
+              >
+                <ScanText className="w-4 h-4" />
+                Scan text from a screenshot
+              </button>
+              <p className="text-xs text-bark-muted mt-0.5">
+                Upload a screenshot that contains recipe text — the app will
+                read the text and fill in ingredients and steps.
+              </p>
+              {ocrMode && (
+                <div className="mt-3 space-y-3">
+                  <input
+                    ref={ocrFileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleOcrUpload}
+                    className="hidden"
+                  />
+                  {ocrLoading ? (
+                    <div className="flex flex-col items-center gap-3 py-4">
+                      <Loader2 className="w-6 h-6 animate-spin text-olive" />
+                      <div className="w-full max-w-xs">
+                        <div className="flex justify-between text-xs text-bark-muted mb-1">
+                          <span>Reading text from image...</span>
+                          <span>{ocrProgress}%</span>
+                        </div>
+                        <div className="h-2 bg-parchment rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-olive rounded-full transition-all duration-300"
+                            style={{ width: `${ocrProgress}%` }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => ocrFileInputRef.current?.click()}
+                      className="w-full h-20 border-2 border-dashed border-olive/30 rounded-xl flex flex-col items-center justify-center gap-1.5 text-olive hover:border-olive/50 hover:bg-white/50 transition-all"
+                    >
+                      <ScanText className="w-5 h-5" />
+                      <span className="text-sm font-medium">Choose a screenshot</span>
+                    </button>
+                  )}
+                  {ocrError && (
+                    <p className="text-xs text-terracotta">{ocrError}</p>
+                  )}
+                  {ocrExtractedText && (
+                    <details className="text-xs">
+                      <summary className="text-bark-muted cursor-pointer hover:text-bark transition-colors font-medium">
+                        Show extracted text
+                      </summary>
+                      <pre className="mt-2 p-3 bg-white rounded-lg border border-parchment text-bark-light whitespace-pre-wrap font-body text-xs max-h-40 overflow-y-auto">
+                        {ocrExtractedText}
+                      </pre>
+                    </details>
                   )}
                 </div>
               )}
