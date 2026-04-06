@@ -335,5 +335,42 @@
     "categories": ["Pasta", "Quick Meals"],
     "source": "emmikochteinfach.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712420000000",
+    "title": "Zitronen Lachs im Ofen",
+    "servings": 4,
+    "ingredients": [
+      {
+        "label": "Lachs",
+        "items": [
+          "4 Lachsfilets, ohne Haut (gerne Bio)",
+          "1/2 Bio-Zitrone, gewaschen und in Scheiben geschnitten",
+          "3 Knoblauchzehen (oder eine ganze Knolle fur Knofi-Fans)",
+          "5 Thymianzweige",
+          "Salz und Pfeffer"
+        ]
+      },
+      {
+        "label": "Dressing",
+        "items": [
+          "60ml Olivenol (ca. 5-6 EL)",
+          "3 EL Bio-Zitronensaft",
+          "1 EL Honig"
+        ]
+      }
+    ],
+    "steps": [
+      "Den Backofen auf 180°C Ober-/Unterhitze (160°C Umluft) vorheizen und eine Auflaufform mit etwas Olivenol einfetten.",
+      "Die Lachsfilets trocken tupfen, salzen und in die Auflaufform legen.",
+      "Die halbe Zitrone heiss abwaschen, trocknen und in ca. 3mm dicke Scheiben schneiden, die Scheiben nochmal halbieren. Thymianzweige waschen und trocknen. Knoblauchzehen NICHT schalen, nur mit dem Handballen etwas andrucken (so entfaltet sich das beste Aroma).",
+      "Die halbierten Zitronenscheiben, die Thymianzweige und den Knoblauch um die Lachsfilets verteilen.",
+      "Olivenol, Zitronensaft und Honig vermengen und kraftig mit Salz und Pfeffer wurzen.",
+      "Das Dressing uber die Lachsfilets giessen und fur ca. 20 Minuten im vorgeheizten Backofen auf der mittleren Schiene garen. Bei 50-55°C Kerntemperatur ist der Lachs medium und innen noch sehr saftig, bei 60°C ist er durch."
+    ],
+    "image": "https://emmikochteinfach.de/wp-content/uploads/2023/06/Zitronen-Lachs-im-Ofen-8.jpg",
+    "categories": ["Healthy", "Quick Meals"],
+    "source": "emmikochteinfach.de",
+    "createdAt": "2026-04-06"
   }
 ]
