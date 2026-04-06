@@ -35,9 +35,8 @@ export function App() {
 
   // On startup, pick up any recipes added via the terminal
   useEffect(() => {
-    syncFileRecipes().then((hasNew) => {
-      if (hasNew) refreshRecipes();
-    });
+    const hasNew = syncFileRecipes();
+    if (hasNew) refreshRecipes();
   }, [refreshRecipes]);
 
   const filteredRecipes = recipes.filter((recipe) => {

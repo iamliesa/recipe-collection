@@ -5,7 +5,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_FILE = join(__dirname, "public", "data", "recipes.json");
+const DATA_FILE = join(__dirname, "data", "recipes.json");
 
 const ALL_CATEGORIES = [
   "Pasta",

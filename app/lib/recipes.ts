@@ -132,14 +132,12 @@ export function getRecipes(): Recipe[] {
 }
 
 /**
- * Fetch recipes added via the terminal and merge them into localStorage.
- * Call this once when the app starts.
+ * Sync recipes from the JSON file into localStorage.
+ * Uses a direct import so Vite always serves the latest version.
  */
-export async function syncFileRecipes(): Promise<boolean> {
+export function syncFileRecipes(): boolean {
   try {
-    const res = await fetch(`/data/recipes.json?t=${Date.now()}`);
-    if (!res.ok) return false;
-    const fileRecipes: Recipe[] = await res.json();
+    const fileRecipes: Recipe[] = getFileRecipes();
     if (fileRecipes.length === 0) return false;
 
     const current = getRecipes();
@@ -149,11 +147,9 @@ export async function syncFileRecipes(): Promise<boolean> {
     for (const fileRecipe of fileRecipes) {
       const existing = currentMap.get(fileRecipe.id);
       if (!existing) {
-        // New recipe — add it
         currentMap.set(fileRecipe.id, fileRecipe);
         changed = true;
       } else if (JSON.stringify(existing) !== JSON.stringify(fileRecipe)) {
-        // Existing recipe was updated in the file — update it
         currentMap.set(fileRecipe.id, { ...existing, ...fileRecipe });
         changed = true;
       }
@@ -166,6 +162,17 @@ export async function syncFileRecipes(): Promise<boolean> {
     return true;
   } catch {
     return false;
+  }
+}
+
+// Move recipes.json out of public/ so Vite can import it directly
+import fileRecipesData from "../../data/recipes.json";
+
+function getFileRecipes(): Recipe[] {
+  try {
+    return Array.isArray(fileRecipesData) ? fileRecipesData as Recipe[] : [];
+  } catch {
+    return [];
   }
 }
 
