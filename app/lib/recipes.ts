@@ -96,6 +96,31 @@ export function getRecipes(): Recipe[] {
   return JSON.parse(stored);
 }
 
+/**
+ * Fetch recipes added via the terminal and merge them into localStorage.
+ * Call this once when the app starts.
+ */
+export async function syncFileRecipes(): Promise<boolean> {
+  try {
+    const res = await fetch("/data/recipes.json");
+    if (!res.ok) return false;
+    const fileRecipes: Recipe[] = await res.json();
+    if (fileRecipes.length === 0) return false;
+
+    const current = getRecipes();
+    const existingIds = new Set(current.map((r) => r.id));
+    const newRecipes = fileRecipes.filter((r) => !existingIds.has(r.id));
+
+    if (newRecipes.length === 0) return false;
+
+    const merged = [...newRecipes, ...current];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function saveRecipe(recipe: Omit<Recipe, "id" | "createdAt">): Recipe {
   const recipes = getRecipes();
   const newRecipe: Recipe = {

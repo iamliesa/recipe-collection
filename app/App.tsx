@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   Search,
   Plus,
@@ -8,7 +8,7 @@ import {
   BookOpen,
   ShoppingCart,
 } from "lucide-react";
-import { getRecipes, deleteRecipe, ALL_CATEGORIES } from "./lib/recipes";
+import { getRecipes, deleteRecipe, ALL_CATEGORIES, syncFileRecipes } from "./lib/recipes";
 import type { Recipe } from "./lib/recipes";
 import { RecipeCard } from "./components/RecipeCard";
 import { RecipeDetail } from "./components/RecipeDetail";
@@ -31,6 +31,13 @@ export function App() {
   const refreshRecipes = useCallback(() => {
     setRecipes(getRecipes());
   }, []);
+
+  // On startup, pick up any recipes added via the terminal
+  useEffect(() => {
+    syncFileRecipes().then((hasNew) => {
+      if (hasNew) refreshRecipes();
+    });
+  }, [refreshRecipes]);
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch =
