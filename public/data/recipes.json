@@ -94,5 +94,52 @@
     "categories": ["Bowls", "Healthy"],
     "source": "plantbaes.com",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712419400000",
+    "title": "No Bake Vegan Oreo Cheesecake",
+    "servings": 16,
+    "ingredients": [
+      {
+        "label": "Oreo cookie crust",
+        "items": [
+          "24 Oreo cookies, filling removed (save the filling for the batter)",
+          "1/3 cup (85g) vegan butter, melted"
+        ]
+      },
+      {
+        "label": "Cheesecake batter",
+        "items": [
+          "36 ounces (1112g) vegan cream cheese",
+          "1 cup (100g) granulated sugar",
+          "1 cup (240ml) vegan heavy cream or cashew cream",
+          "1/2 cup (120g) dairy free yogurt",
+          "1 tbsp vanilla extract",
+          "Filling from Oreos from crust section",
+          "15 Oreo cookies, crushed or roughly chopped"
+        ]
+      },
+      {
+        "label": "Toppings",
+        "items": [
+          "1 batch vegan chocolate ganache",
+          "1/2 batch vegan buttercream",
+          "Crushed Oreos"
+        ]
+      }
+    ],
+    "steps": [
+      "Line a 8 or 9-inch springform pan with parchment paper. Grease the edges with a bit of cooking or coconut oil.",
+      "Make the crust: In a food processor, pulse just the Oreo cookies (save the filling for the batter) until completely crushed. Add the vegan butter, and pulse until crumbly and wet. Press the dough onto the bottom of the springform pan. Place in the freezer to chill while you make the filling.",
+      "Make the cheesecake filling: In a large food processor, cream together the cream cheese and dairy free yogurt until smooth. Add the sugar, vegan heavy cream, vanilla, and Oreo cream filling from the crust section. Cream together again until smooth. Fold in the crushed Oreo cookies until evenly distributed. Pour the filling into the springform pan and smooth the top.",
+      "Chill the cheesecake: Place into the freezer to set for 4-6 hours, or overnight.",
+      "When ready to serve: Prepare the ganache by whisking together all of the ganache ingredients. Set aside.",
+      "Remove from pan: Carefully run a butter knife along the edges of the springform pan, and carefully remove the walls to plate the cheesecake.",
+      "Decorate and serve: Pour the vegan ganache on top, add vegan buttercream and Oreo cookies if desired. Slice and serve! Store leftovers in an airtight container in the fridge for up to 3 days, or in the freezer for up to 3 months."
+    ],
+    "image": "https://thebananadiaries.com/wp-content/uploads/2023/10/vegan-no-bake-oreo-cheesecake_8044.jpg",
+    "categories": ["Snacks"],
+    "source": "thebananadiaries.com",
+    "createdAt": "2026-04-06"
   }
 ]
