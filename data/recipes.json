@@ -308,5 +308,32 @@
     "categories": ["Pasta", "Healthy"],
     "source": "foodlovin.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712419900000",
+    "title": "Nudeln mit Lachs Sahne Sosse",
+    "servings": 4,
+    "ingredients": [
+      "500g Lachsfilet ohne Haut (frisch oder tiefgekuhlt und aufgetaut)",
+      "400g Nudeln, z.B. Tagliatelle",
+      "300g Schlagsahne (32% Fett) oder Kochsahne (15% Fett)",
+      "20g Butter",
+      "1-2 EL Tomatenmark",
+      "2 TL gekornte Gemüsebruhe",
+      "1 EL Pflanzenol, neutral (z.B. Rapsol, Sonnenblumenol)",
+      "Schwarzer Pfeffer aus der Muhle",
+      "Frische Zitrone (nach Belieben)"
+    ],
+    "steps": [
+      "Kochwasser aufsetzen und die Nudeln im Salzwasser nach Packungsanweisung bissfest garen.",
+      "Das Lachsfilet trocken tupfen und in Wurfel schneiden.",
+      "1 EL Pflanzenol mit 20g Butter erhitzen und die Lachswurfel darin ca. 5 Minuten rundherum anbraten. Das gibt schone Rostaromen fur die Sauce.",
+      "Mit 300g Sahne abloschen und mit 2 TL gekornter Gemüsebruhe, 1-2 EL Tomatenmark und schwarzem Pfeffer wurzen. Kurz aufkochen lassen und nochmal abschmecken.",
+      "Die gekochten Nudeln abgiessen, abtropfen lassen und mit der Lachs Sahne Sosse servieren. Auf Wunsch mit Blattpetersilie und Zitronen servieren."
+    ],
+    "image": "https://emmikochteinfach.de/wp-content/uploads/2022/12/Nudeln-mit-Lachs-Sahne-Sosse-5.jpg",
+    "categories": ["Pasta", "Quick Meals"],
+    "source": "emmikochteinfach.de",
+    "createdAt": "2026-04-06"
   }
 ]
