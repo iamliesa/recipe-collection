@@ -141,5 +141,57 @@
     "categories": ["Snacks"],
     "source": "thebananadiaries.com",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712419500000",
+    "title": "Vegan Blueberry Crumble Cheesecake",
+    "servings": 12,
+    "ingredients": [
+      {
+        "label": "Graham cracker crust",
+        "items": [
+          "12 sheets (250g) graham crackers",
+          "1/4 cup (57g) vegan butter, melted"
+        ]
+      },
+      {
+        "label": "Shortbread crumble",
+        "items": [
+          "1 cup (125g) all purpose flour or gluten free 1:1 baking flour",
+          "3/4 cup (150g) granulated sugar",
+          "1/3 cup (80g) salted vegan butter, melted",
+          "1 tsp vanilla extract",
+          "1 tsp vanilla bean paste or powder (optional)"
+        ]
+      },
+      {
+        "label": "Cheesecake filling",
+        "items": [
+          "4 x 8-ounce containers (32 ounces) vegan cream cheese, room temperature",
+          "1 cup (240g) dairy free yogurt or dairy free sour cream, room temperature",
+          "1 cup (240ml) vegan heavy cream or cashew cream",
+          "1 cup (200g) organic granulated sugar",
+          "8 tbsp (80g) cornstarch or arrowroot starch",
+          "1 tbsp vanilla extract",
+          "1 tsp vanilla bean paste",
+          "1.5 pint fresh blueberries"
+        ]
+      }
+    ],
+    "steps": [
+      "Preheat the oven to 400°F, and line a 9\" springform pan with parchment paper. Wash the blueberries.",
+      "Make the crust: Pulse the graham crackers to a fine flour in a food processor. Add the melted vegan butter, and blend until you achieve a wet crumble. Press the crust into the pan and around the sides. Bake for 12 minutes.",
+      "Make the crumble: In a medium bowl, whisk together the flour and sugar. Add the vegan butter and vanilla extract, and mix with a fork until the mixture resembles a crumble. Set aside.",
+      "Make the cheesecake filling: Add all cheesecake filling ingredients to a blender, except for the blueberries. Puree until creamy and smooth, scraping down the sides to ensure everything is blended.",
+      "Heat about 1 cup of water until boiling for the water bath.",
+      "Assemble: When the crust is done par-baking, reduce the oven to 350°F, and place a pan for the water bath on the bottom rack. Pour the cheesecake filling into the par-baked crust, then top with blueberries. Spread into an even layer, then crumble the shortbread crumble on top.",
+      "Bake: Pour the water into the baking sheet on the bottom rack. Place the cheesecake on a separate baking sheet on the middle rack. Bake for 70-75 minutes, or until the shortbread is just golden brown. Cover the crumble with parchment paper partway through if needed.",
+      "Cool at room temperature for 1 hour, then transfer to the fridge covered and chill for 4 hours, or overnight.",
+      "When ready to serve: Carefully remove the springform pan, slice and serve with a scoop of vanilla ice cream. Enjoy!"
+    ],
+    "image": "https://thebananadiaries.com/wp-content/uploads/2023/10/vegan-blueberry-crumble-cheesecake_6348.jpg",
+    "categories": ["Snacks"],
+    "source": "thebananadiaries.com",
+    "createdAt": "2026-04-06"
   }
 ]
