@@ -438,5 +438,35 @@
     "categories": ["Quick Meals"],
     "source": "simpelsatt.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712420300000",
+    "title": "Linseneintopf mit Susskartoffel und Spinat",
+    "servings": 3,
+    "ingredients": [
+      "300g Susskartoffel",
+      "100g Linsen (z.B. Puy-Linsen)",
+      "1 Zwiebel",
+      "2 Zehen Knoblauch",
+      "1 Stuck Ingwer (ca. 2cm lang)",
+      "1 EL Kokosol",
+      "1 TL Currypulver",
+      "1/2 TL Kurkuma",
+      "1/2 TL Kreuzummel",
+      "1/4 TL Chiliflocken",
+      "1 Dose stuckige Tomaten (400g)",
+      "ca. 400ml Gemüsebruhe",
+      "100g Babyspinat",
+      "Salz, Pfeffer",
+      "Saure Sahne und gehackte Cashewkerne zum Servieren"
+    ],
+    "steps": [
+      "Die Susskartoffel schalen, waschen und in ca. 1cm grosse Wurfel schneiden. Die Linsen in ein Sieb geben und unter fliessendem kaltem Wasser grundlich abspulen. Zwiebel und Ingwer schalen und fein hacken, Knoblauch schalen und die ganzen Zehen mit der flachen Seite eines Messers andrucken.",
+      "Das Kokosol in einem grossen Topf erhitzen. Zwiebel, Knoblauch und Ingwer unter Ruhren fur 3-4 Minuten anschwitzen. Linsen, Susskartoffel und Gewurze (Curry, Kurkuma, Kreuzummel und Chiliflocken) dazugeben und fur 1 Minute mit anschwitzen.",
+      "Die Tomaten aus der Dose und ca. 250ml Gemüsebruhe angiessen. Alles bei geschlossenem Deckel und milder Hitze 25-30 Minuten kocheln lassen. Gelegentlich umruhren und bei Bedarf etwas Bruhe nachgiessen.",
+      "Den Babyspinat waschen und trocken schleudern. Sobald die Linsen gar sind, den Babyspinat nur noch kurz unterruhren, bis er zusammengefallen ist. Kraftig mit Salz und Pfeffer wurzen und mit einem Klecks Saurer Sahne und gehackten Cashewkernen servieren."
+    ],
+    "categories": ["Soups", "Healthy"],
+    "createdAt": "2026-04-06"
   }
 ]
