@@ -137,7 +137,7 @@ export function getRecipes(): Recipe[] {
  */
 export async function syncFileRecipes(): Promise<boolean> {
   try {
-    const res = await fetch("/data/recipes.json");
+    const res = await fetch(`/data/recipes.json?t=${Date.now()}`);
     if (!res.ok) return false;
     const fileRecipes: Recipe[] = await res.json();
     if (fileRecipes.length === 0) return false;
