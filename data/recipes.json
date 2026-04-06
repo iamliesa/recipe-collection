@@ -257,5 +257,56 @@
     "categories": ["Salads", "Healthy", "Quick Meals", "Meal Prep"],
     "source": "familienkost.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712419800000",
+    "title": "Linsen-Lasagne",
+    "servings": 4,
+    "ingredients": [
+      {
+        "label": "Linsen-Bolognese",
+        "items": [
+          "400g rote Linsen",
+          "3 EL Tomatenmark",
+          "2 Knoblauchzehen",
+          "1 Zwiebel",
+          "2 Mohren",
+          "2 EL Olivenol",
+          "120ml Rotwein",
+          "400g passierte Tomaten",
+          "400g gehackte Tomaten",
+          "1 Lorbeerblatt",
+          "Salz und Pfeffer nach Geschmack"
+        ]
+      },
+      {
+        "label": "Bechamelsauce",
+        "items": [
+          "30g Butter",
+          "30g Mehl",
+          "500ml Milch oder Hafermilch",
+          "1 Prise Muskatnuss (optional)",
+          "4 EL Parmesan"
+        ]
+      },
+      {
+        "label": "Zum Schichten",
+        "items": [
+          "10 Lasagneplatten",
+          "120g geriebener Mozzarella"
+        ]
+      }
+    ],
+    "steps": [
+      "Die Zwiebel, Knoblauchzehen und Mohren schalen und fein hacken. Das Olivenol in einem grossen Topf erhitzen. Zwiebel, Knoblauch und Mohren darin 2-3 Minuten anrosten. Das Tomatenmark und die Linsen dazugeben und mit rosten.",
+      "Mit dem Rotwein abloschen, dann die passierten und gehackten Tomaten und das Lorbeerblatt dazugeben. Etwa 20 Minuten einkochen lassen. Mit Salz und Pfeffer wurzen.",
+      "Wahrenddessen die Butter in einem kleinen Topf schmelzen. Das Mehl dazugeben und unter standigem Ruhren 1 Minute leicht anschwitzen. Langsam die Milch dazu giessen und aufkochen lassen. Weiter ruhren, bis die Sosse andickt. Mit Salz, Pfeffer, Muskat und Parmesan abschmecken.",
+      "Den Backofen auf 200°C Ober- und Unterhitze vorheizen. Eine Auflaufform mit ein wenig Ol bepinseln. Etwas Tomaten-Sauce dunn in der Auflaufform verteilen (das Lorbeerblatt entfernen). Dann abwechselnd Lasagneplatten, Tomatensauce und Bechamel schichten. Mit Bechamelsauce abschliessen und mit geriebenem Kase bestreuen.",
+      "Die Lasagne etwa 45 Minuten im vorgeheizten Ofen backen. Vor dem Anschneiden etwas auskuhlen lassen und mit frischem Basilikum garnieren."
+    ],
+    "image": "https://foodlovin.de/wp-content/uploads/2022/05/linsenlasagne-1.jpg",
+    "categories": ["Pasta", "Healthy"],
+    "source": "foodlovin.de",
+    "createdAt": "2026-04-06"
   }
 ]
