@@ -219,5 +219,43 @@
     "categories": ["Breakfast", "Snacks", "Meal Prep"],
     "source": "flowersinthesalad.com",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712419700000",
+    "title": "Linsensalat mit Feta",
+    "servings": 5,
+    "ingredients": [
+      {
+        "label": "Salat",
+        "items": [
+          "250g Linsen (gekocht, geht auch aus der Dose)",
+          "3 Lauchzwiebeln",
+          "3 Tomaten",
+          "200g Feta",
+          "2 EL Petersilie, gehackt",
+          "Salz",
+          "Pfeffer",
+          "Chilischote (optional)"
+        ]
+      },
+      {
+        "label": "Dressing",
+        "items": [
+          "2 EL dunkler Balsamico-Essig",
+          "2 EL Olivenöl",
+          "1 TL Honig",
+          "1 TL Senf"
+        ]
+      }
+    ],
+    "steps": [
+      "Wasche die Lauchzwiebeln und schneide sie in feine Ringe. Wasche die Tomaten und würfele sie sehr klein. Schneide den Fetakäse in sehr kleine Würfel.",
+      "Mische die Lauchzwiebelringe mit den Tomaten, der Petersilie, den Linsen und dem Fetakäse.",
+      "Verrühre den Balsamicoessig mit dem Olivenöl, dem Honig und dem Senf zu einem Dressing. Hebe das Dressing unter den Linsensalat."
+    ],
+    "image": "https://www.familienkost.de/images/linsensalat-mit-feta.jpg",
+    "categories": ["Salads", "Healthy", "Quick Meals", "Meal Prep"],
+    "source": "familienkost.de",
+    "createdAt": "2026-04-06"
   }
 ]
