@@ -372,5 +372,43 @@
     "categories": ["Healthy", "Quick Meals"],
     "source": "emmikochteinfach.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712420100000",
+    "title": "Kohlrabi mit Frikadellen",
+    "servings": 4,
+    "ingredients": [
+      {
+        "label": "Kohlrabi",
+        "items": [
+          "3 Stuck Kohlrabi"
+        ]
+      },
+      {
+        "label": "Helle Sosse",
+        "items": [
+          "40g Butter",
+          "40g Mehl",
+          "200ml Sahne",
+          "400ml Wasser vom Kohlrabi",
+          "Salz",
+          "Pfeffer",
+          "1 TL Gemüsebruhe",
+          "1 Prise Muskat",
+          "1 TL Zitronensaft",
+          "1 TL Zucker"
+        ]
+      }
+    ],
+    "steps": [
+      "Den Kohlrabi schalen und in Stifte schneiden. Die Kohlrabistifte in leicht gesalzenem Wasser ca. 8 Minuten lang bissfest garen.",
+      "Fur die helle Sosse: Butter in einem Topf auf geringer Hitze zerlassen. Unter Ruhren loffelweise das Mehl hinzufugen. Weiter ruhren und auf geringer Hitze die Mischung ca. 2 Minuten anbraten. Nicht dunkel werden lassen!",
+      "Dann die Sahne und das Kohlrabiwasser portionsweise hinzugeben.",
+      "Die Gemüsebruhe einruhren und mit Salz, Pfeffer, Muskat, Zitronensaft und Zucker abschmecken.",
+      "Die Sosse 6 bis 7 Minuten lang kocheln lassen, dabei gelegentlich ruhren. Wem die Sosse zu dickflussig ist, kann noch etwas Kohlrabiwasser hinzugeben.",
+      "Den Kohlrabi vollstandig abgiessen und die helle Sosse zum Kohlrabi geben. Auf geringer Hitze alles noch einmal erhitzen."
+    ],
+    "categories": ["Healthy"],
+    "createdAt": "2026-04-06"
   }
 ]
