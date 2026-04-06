@@ -108,12 +108,25 @@ export async function syncFileRecipes(): Promise<boolean> {
     if (fileRecipes.length === 0) return false;
 
     const current = getRecipes();
-    const existingIds = new Set(current.map((r) => r.id));
-    const newRecipes = fileRecipes.filter((r) => !existingIds.has(r.id));
+    const currentMap = new Map(current.map((r) => [r.id, r]));
+    let changed = false;
 
-    if (newRecipes.length === 0) return false;
+    for (const fileRecipe of fileRecipes) {
+      const existing = currentMap.get(fileRecipe.id);
+      if (!existing) {
+        // New recipe — add it
+        currentMap.set(fileRecipe.id, fileRecipe);
+        changed = true;
+      } else if (JSON.stringify(existing) !== JSON.stringify(fileRecipe)) {
+        // Existing recipe was updated in the file — update it
+        currentMap.set(fileRecipe.id, { ...existing, ...fileRecipe });
+        changed = true;
+      }
+    }
 
-    const merged = [...newRecipes, ...current];
+    if (!changed) return false;
+
+    const merged = Array.from(currentMap.values());
     localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
     return true;
   } catch {
