@@ -23,8 +23,13 @@ import { getRecipes } from "../lib/recipes";
 import type { Recipe } from "../lib/recipes";
 import { RecipePicker } from "./RecipePicker";
 
-export function MealPlanner() {
-  const [weekOffset, setWeekOffset] = useState(0);
+interface MealPlannerProps {
+  weekOffset: number;
+  onWeekChange: (offset: number) => void;
+}
+
+export function MealPlanner({ weekOffset, onWeekChange }: MealPlannerProps) {
+  const setWeekOffset = onWeekChange;
   const [, setRefresh] = useState(0);
   const [pickerTarget, setPickerTarget] = useState<{
     date: Date;
@@ -54,7 +59,7 @@ export function MealPlanner() {
       {/* Week navigation */}
       <div className="flex items-center justify-between mb-6">
         <button
-          onClick={() => setWeekOffset((w) => w - 1)}
+          onClick={() => setWeekOffset(weekOffset - 1)}
           className="p-2 rounded-xl hover:bg-parchment/50 transition-colors text-bark-muted hover:text-bark"
         >
           <ChevronLeft className="w-5 h-5" />
@@ -73,7 +78,7 @@ export function MealPlanner() {
           )}
         </div>
         <button
-          onClick={() => setWeekOffset((w) => w + 1)}
+          onClick={() => setWeekOffset(weekOffset + 1)}
           className="p-2 rounded-xl hover:bg-parchment/50 transition-colors text-bark-muted hover:text-bark"
         >
           <ChevronRight className="w-5 h-5" />

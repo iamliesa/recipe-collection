@@ -6,6 +6,7 @@ import {
   SlidersHorizontal,
   CalendarDays,
   BookOpen,
+  ShoppingCart,
 } from "lucide-react";
 import { getRecipes, deleteRecipe, ALL_CATEGORIES } from "./lib/recipes";
 import type { Recipe } from "./lib/recipes";
@@ -13,11 +14,13 @@ import { RecipeCard } from "./components/RecipeCard";
 import { RecipeDetail } from "./components/RecipeDetail";
 import { AddRecipeForm } from "./components/AddRecipeForm";
 import { MealPlanner } from "./components/MealPlanner";
+import { ShoppingList } from "./components/ShoppingList";
 
-type View = "recipes" | "planner";
+type View = "recipes" | "planner" | "shopping";
 
 export function App() {
   const [view, setView] = useState<View>("recipes");
+  const [weekOffset, setWeekOffset] = useState(0);
   const [recipes, setRecipes] = useState<Recipe[]>(() => getRecipes());
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -109,12 +112,27 @@ export function App() {
               <CalendarDays className="w-4 h-4" />
               Meal Plan
             </button>
+            <button
+              onClick={() => setView("shopping")}
+              className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold transition-all ${
+                view === "shopping"
+                  ? "bg-white text-bark shadow-sm"
+                  : "text-bark-muted hover:text-bark"
+              }`}
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Shopping
+            </button>
           </div>
         </div>
       </header>
 
       {view === "planner" ? (
-        <MealPlanner />
+        <MealPlanner weekOffset={weekOffset} onWeekChange={setWeekOffset} />
+      ) : view === "shopping" ? (
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <ShoppingList weekOffset={weekOffset} />
+        </div>
       ) : (
         <>
           {/* Search & Filters */}

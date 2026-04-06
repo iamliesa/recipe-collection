@@ -102,3 +102,15 @@ export function clearDay(date: Date): void {
   delete plans[key];
   savePlans(plans);
 }
+
+/** Collect all unique recipe IDs planned for a given week. */
+export function getWeekRecipeIds(weekOffset: number): string[] {
+  const dates = getWeekDates(weekOffset);
+  const ids = new Set<string>();
+  for (const date of dates) {
+    const plan = getDayPlan(date);
+    if (plan.lunch.recipeId) ids.add(plan.lunch.recipeId);
+    if (plan.dinner.recipeId) ids.add(plan.dinner.recipeId);
+  }
+  return Array.from(ids);
+}
