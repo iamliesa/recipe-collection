@@ -193,5 +193,31 @@
     "categories": ["Snacks"],
     "source": "thebananadiaries.com",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712419600000",
+    "title": "Goldenes Kokosgranola (super crunchy!)",
+    "servings": "500g",
+    "ingredients": [
+      "220g Haferflocken",
+      "80g Cashewkerne, grob gehackt",
+      "40g Kokoschips",
+      "20g Kokosmehl (alternativ gemahlene Haferflocken oder Haferflockenmehl)",
+      "80ml Kokosöl, geschmolzen",
+      "80ml Ahornsirup",
+      "½ TL Salz",
+      "¼ TL Kardamom, gemahlen (optional)"
+    ],
+    "steps": [
+      "Den Backofen auf 160°C Ober-/Unterhitze vorheizen. Ein Backblech mit Backpapier auslegen.",
+      "Haferflocken, Cashewkerne, Kokoschips, Kokosmehl, Salz und Kardamom (optional) in einer großen Schüssel vermischen.",
+      "Das flüssige Kokosöl und den Ahornsirup auf die trockenen Zutaten geben und alles verrühren. Die Masse auf dem Backpapier verteilen und mit den Händen oder einem Pfannenwender leicht festdrücken.",
+      "Im vorgeheizten Backofen 20–25 Minuten backen, bis das Granola leicht Farbe angenommen hat. Danach den Backofen ausschalten, die Ofentür für einige Sekunden öffnen, sodass etwas Hitze entweicht. Wieder schließen und das Granola 30 Minuten im ausgeschalteten Ofen „trocknen" lassen.",
+      "Das Granola aus dem Ofen nehmen und auf dem Blech komplett auskühlen lassen. Erst dann in Stücke brechen. So bleiben schöne, große Stücke. In einem Behälter mit Deckel aufbewahren."
+    ],
+    "image": "https://flowersinthesalad.com/wp-content/uploads/2023/12/golden-coconut-maple-granola-4-von-12.jpg",
+    "categories": ["Breakfast", "Snacks", "Meal Prep"],
+    "source": "flowersinthesalad.com",
+    "createdAt": "2026-04-06"
   }
 ]
