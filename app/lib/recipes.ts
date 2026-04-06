@@ -1,12 +1,45 @@
+export interface IngredientGroup {
+  label: string;
+  items: string[];
+}
+
+export interface StepGroup {
+  label: string;
+  items: string[];
+}
+
 export interface Recipe {
   id: string;
   title: string;
-  ingredients: string[];
-  steps: string[];
+  /** Flat list (legacy) or grouped sections */
+  ingredients: string[] | IngredientGroup[];
+  steps: string[] | StepGroup[];
+  servings?: number | string;
   image?: string;
   categories: string[];
   source?: string;
   createdAt: string;
+}
+
+/** Check whether ingredients/steps use the grouped format */
+export function isGrouped<T>(arr: (string | T)[]): arr is T[] {
+  return arr.length > 0 && typeof arr[0] !== "string";
+}
+
+/** Get a flat list of all ingredient strings (for shopping list, search, etc.) */
+export function flatIngredients(recipe: Recipe): string[] {
+  if (isGrouped<IngredientGroup>(recipe.ingredients)) {
+    return recipe.ingredients.flatMap((g) => g.items);
+  }
+  return recipe.ingredients as string[];
+}
+
+/** Get a flat list of all step strings */
+export function flatSteps(recipe: Recipe): string[] {
+  if (isGrouped<StepGroup>(recipe.steps)) {
+    return recipe.steps.flatMap((g) => g.items);
+  }
+  return recipe.steps as string[];
 }
 
 const STORAGE_KEY = "recipe-collection";
@@ -15,6 +48,7 @@ const defaultRecipes: Recipe[] = [
   {
     id: "1",
     title: "Gesunder Nudelauflauf",
+    servings: 4,
     ingredients: [
       "250g Vollkornnudeln",
       "200g Brokkoli",
@@ -44,6 +78,7 @@ const defaultRecipes: Recipe[] = [
   {
     id: "2",
     title: "Tortellini Suppe",
+    servings: 3,
     ingredients: [
       "250g Tortellini (frisch)",
       "1 Dose stückige Tomaten (400g)",

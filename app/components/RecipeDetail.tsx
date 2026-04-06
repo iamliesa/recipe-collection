@@ -1,5 +1,6 @@
-import { ArrowLeft, ChefHat, ListOrdered, UtensilsCrossed, Pencil } from "lucide-react";
-import type { Recipe } from "../lib/recipes";
+import { ArrowLeft, ChefHat, ListOrdered, UtensilsCrossed, Pencil, Users } from "lucide-react";
+import { isGrouped } from "../lib/recipes";
+import type { Recipe, IngredientGroup, StepGroup } from "../lib/recipes";
 
 interface RecipeDetailProps {
   recipe: Recipe;
@@ -8,6 +9,9 @@ interface RecipeDetailProps {
 }
 
 export function RecipeDetail({ recipe, onBack, onEdit }: RecipeDetailProps) {
+  const hasGroupedIngredients = isGrouped<IngredientGroup>(recipe.ingredients);
+  const hasGroupedSteps = isGrouped<StepGroup>(recipe.steps);
+
   return (
     <div className="max-w-2xl mx-auto modal-enter">
       <div className="flex items-center justify-between mb-8">
@@ -48,7 +52,13 @@ export function RecipeDetail({ recipe, onBack, onEdit }: RecipeDetailProps) {
         {recipe.title}
       </h1>
 
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap items-center gap-2 mb-10">
+        {recipe.servings && (
+          <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-terracotta-pale text-terracotta border border-terracotta-light/40">
+            <Users className="w-3.5 h-3.5" />
+            {recipe.servings} servings
+          </span>
+        )}
         {recipe.categories.map((cat) => (
           <span
             key={cat}
@@ -68,14 +78,34 @@ export function RecipeDetail({ recipe, onBack, onEdit }: RecipeDetailProps) {
             </span>
             Ingredients
           </h2>
-          <ul className="space-y-3">
-            {recipe.ingredients.map((ing, i) => (
-              <li key={i} className="flex items-start gap-3 text-bark-light text-[15px]">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0" />
-                {ing}
-              </li>
-            ))}
-          </ul>
+          {hasGroupedIngredients ? (
+            <div className="space-y-5">
+              {(recipe.ingredients as IngredientGroup[]).map((group, gi) => (
+                <div key={gi}>
+                  <h3 className="text-sm font-semibold text-olive uppercase tracking-wide mb-2.5">
+                    {group.label}
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {group.items.map((ing, i) => (
+                      <li key={i} className="flex items-start gap-3 text-bark-light text-[15px]">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0" />
+                        {ing}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <ul className="space-y-3">
+              {(recipe.ingredients as string[]).map((ing, i) => (
+                <li key={i} className="flex items-start gap-3 text-bark-light text-[15px]">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0" />
+                  {ing}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* Steps */}
@@ -86,16 +116,38 @@ export function RecipeDetail({ recipe, onBack, onEdit }: RecipeDetailProps) {
             </span>
             Steps
           </h2>
-          <ol className="space-y-5">
-            {recipe.steps.map((step, i) => (
-              <li key={i} className="flex gap-3 text-bark-light text-[15px]">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-olive-ghost text-olive text-xs font-bold shrink-0 mt-0.5 border border-olive-pale/60">
-                  {i + 1}
-                </span>
-                <span className="leading-relaxed">{step}</span>
-              </li>
-            ))}
-          </ol>
+          {hasGroupedSteps ? (
+            <div className="space-y-5">
+              {(recipe.steps as StepGroup[]).map((group, gi) => (
+                <div key={gi}>
+                  <h3 className="text-sm font-semibold text-olive uppercase tracking-wide mb-2.5">
+                    {group.label}
+                  </h3>
+                  <ol className="space-y-4">
+                    {group.items.map((step, i) => (
+                      <li key={i} className="flex gap-3 text-bark-light text-[15px]">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-olive-ghost text-olive text-xs font-bold shrink-0 mt-0.5 border border-olive-pale/60">
+                          {i + 1}
+                        </span>
+                        <span className="leading-relaxed">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <ol className="space-y-5">
+              {(recipe.steps as string[]).map((step, i) => (
+                <li key={i} className="flex gap-3 text-bark-light text-[15px]">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-olive-ghost text-olive text-xs font-bold shrink-0 mt-0.5 border border-olive-pale/60">
+                    {i + 1}
+                  </span>
+                  <span className="leading-relaxed">{step}</span>
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
       </div>
 

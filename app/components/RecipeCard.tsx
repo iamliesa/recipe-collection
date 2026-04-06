@@ -1,4 +1,5 @@
-import { ChefHat, Trash2, UtensilsCrossed } from "lucide-react";
+import { ChefHat, Trash2, UtensilsCrossed, Users } from "lucide-react";
+import { flatIngredients, flatSteps } from "../lib/recipes";
 import type { Recipe } from "../lib/recipes";
 
 interface RecipeCardProps {
@@ -46,10 +47,19 @@ export function RecipeCard({
         <div className="flex items-center gap-3 mt-3 text-sm text-bark-muted">
           <span className="flex items-center gap-1.5">
             <ChefHat className="w-3.5 h-3.5" />
-            {recipe.ingredients.length} ingredients
+            {flatIngredients(recipe).length} ingredients
           </span>
           <span className="w-1 h-1 rounded-full bg-bark-faint" />
-          <span>{recipe.steps.length} steps</span>
+          <span>{flatSteps(recipe).length} steps</span>
+          {recipe.servings && (
+            <>
+              <span className="w-1 h-1 rounded-full bg-bark-faint" />
+              <span className="flex items-center gap-1">
+                <Users className="w-3.5 h-3.5" />
+                {recipe.servings}
+              </span>
+            </>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-1.5 mt-3">

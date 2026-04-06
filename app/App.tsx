@@ -8,7 +8,7 @@ import {
   BookOpen,
   ShoppingCart,
 } from "lucide-react";
-import { getRecipes, deleteRecipe, ALL_CATEGORIES, syncFileRecipes } from "./lib/recipes";
+import { getRecipes, deleteRecipe, ALL_CATEGORIES, syncFileRecipes, flatIngredients } from "./lib/recipes";
 import type { Recipe } from "./lib/recipes";
 import { RecipeCard } from "./components/RecipeCard";
 import { RecipeDetail } from "./components/RecipeDetail";
@@ -44,7 +44,7 @@ export function App() {
     const matchesSearch =
       search === "" ||
       recipe.title.toLowerCase().includes(search.toLowerCase()) ||
-      recipe.ingredients.some((i) =>
+      flatIngredients(recipe).some((i) =>
         i.toLowerCase().includes(search.toLowerCase())
       );
     const matchesCategory =

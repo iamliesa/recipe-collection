@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search, X, UtensilsCrossed } from "lucide-react";
-import { getRecipes } from "../lib/recipes";
+import { getRecipes, flatIngredients } from "../lib/recipes";
 import type { Recipe } from "../lib/recipes";
 
 interface RecipePickerProps {
@@ -94,7 +94,7 @@ function RecipeOption({
           {recipe.title}
         </p>
         <p className="text-xs text-bark-muted mt-0.5">
-          {recipe.ingredients.length} ingredients
+          {flatIngredients(recipe).length} ingredients
         </p>
       </div>
     </button>

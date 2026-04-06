@@ -1,3 +1,4 @@
+import { flatIngredients } from "./recipes";
 import type { Recipe } from "./recipes";
 
 export interface ShoppingItem {
@@ -16,7 +17,7 @@ export function buildShoppingList(recipes: Recipe[]): ShoppingItem[] {
   const map = new Map<string, { text: string; fromRecipes: string[] }>();
 
   for (const recipe of recipes) {
-    for (const raw of recipe.ingredients) {
+    for (const raw of flatIngredients(recipe)) {
       const key = normalizeIngredient(raw);
       const existing = map.get(key);
       if (existing) {

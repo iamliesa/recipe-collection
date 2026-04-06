@@ -2,23 +2,34 @@
   {
     "id": "1712419200000",
     "title": "Harissa Potato & Chickpea Bowl with Roasted Garlic Yogurt Dip",
+    "servings": 2,
     "ingredients": [
-      "1 lb (450g) potatoes, chopped into wedges",
-      "1 tsp (2g) lemon zest",
-      "1.5 tsp (10g) za'atar or dried thyme",
-      "2 tsp (12g) harissa paste",
-      "Sea salt flakes, to taste",
-      "1 tbsp (15ml) olive oil",
-      "1 tsp (2g) ground cumin",
-      "1.5 cups (245g) chickpeas, cooked",
-      "1 broccoli head, medium, chopped into florets",
-      "8 raw almonds, roughly chopped",
-      "1 scallion, large, finely chopped",
-      "1 garlic head, large",
-      "2 tbsp (30ml) lemon juice",
-      "3 tbsp (11g) fresh parsley, finely chopped",
-      "½ tbsp (8ml) maple syrup (optional)",
-      "1 cup (240g) plain yogurt (e.g. soy)"
+      {
+        "label": "For the bowl",
+        "items": [
+          "1 lb (450g) potatoes, chopped into wedges",
+          "1 tsp (2g) lemon zest",
+          "1.5 tsp (10g) za'atar or dried thyme",
+          "2 tsp (12g) harissa paste",
+          "Sea salt flakes, to taste",
+          "1 tbsp (15ml) olive oil",
+          "1 tsp (2g) ground cumin",
+          "1.5 cups (245g) chickpeas, cooked",
+          "1 broccoli head, medium, chopped into florets",
+          "8 raw almonds, roughly chopped",
+          "1 scallion, large, finely chopped"
+        ]
+      },
+      {
+        "label": "For the dip",
+        "items": [
+          "1 garlic head, large",
+          "2 tbsp (30ml) lemon juice",
+          "3 tbsp (11g) fresh parsley, finely chopped",
+          "½ tbsp (8ml) maple syrup (optional)",
+          "1 cup (240g) plain yogurt (e.g. soy)"
+        ]
+      }
     ],
     "steps": [
       "Preheat the oven to 400°F (200°C) with the fan on.",
