@@ -412,5 +412,29 @@
     "categories": ["Healthy"],
     "source": "instakoch.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1712420200000",
+    "title": "Gnocchi-Gemuse-Pfanne mit Frischkase",
+    "servings": 3,
+    "ingredients": [
+      "500g Gnocchi (aus dem Kuhlfach)",
+      "1 Zwiebel",
+      "1 Zucchini",
+      "125g kleine Tomaten",
+      "200g Champignons (braun oder weiss, klein)",
+      "150g Frischkase (Doppelrahmstufe)",
+      "250ml Gemüsebruhe",
+      "2 EL Ol",
+      "Salz & Pfeffer"
+    ],
+    "steps": [
+      "Zwiebel fein hacken, Tomaten halbieren und Zucchini in Viertelringe schneiden. Champignons putzen, Stiel kurzen und vierteln.",
+      "Ol in einer grossen Pfanne erhitzen. Gnocchi, Zucchini und Champignons anbraten. Hitze runterschalten und die Zwiebelstucke kurz anschwitzen.",
+      "Mit der Gemüsebruhe abloschen. Frischkase unterruhren und die halbierten Tomaten hinzugeben.",
+      "Fur 10 Minuten kocheln lassen, bis die Gnocchi gar sind. Mit Salz und Pfeffer abschmecken."
+    ],
+    "categories": ["Quick Meals"],
+    "createdAt": "2026-04-06"
   }
 ]
