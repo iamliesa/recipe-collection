@@ -10,22 +10,29 @@ import {
   Loader2,
   ScanText,
 } from "lucide-react";
-import { ALL_CATEGORIES, saveRecipe } from "../lib/recipes";
+import { ALL_CATEGORIES, saveRecipe, updateRecipe } from "../lib/recipes";
+import type { Recipe } from "../lib/recipes";
 import { importFromUrl } from "../lib/import-url";
 import { extractTextFromImage } from "../lib/ocr";
 
 interface AddRecipeFormProps {
   onClose: () => void;
   onSaved: () => void;
+  editRecipe?: Recipe;
 }
 
-export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
-  const [title, setTitle] = useState("");
-  const [ingredients, setIngredients] = useState<string[]>([""]);
-  const [steps, setSteps] = useState<string[]>([""]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [source, setSource] = useState("");
-  const [image, setImage] = useState<string | undefined>();
+export function AddRecipeForm({ onClose, onSaved, editRecipe }: AddRecipeFormProps) {
+  const isEditing = !!editRecipe;
+  const [title, setTitle] = useState(editRecipe?.title ?? "");
+  const [ingredients, setIngredients] = useState<string[]>(
+    editRecipe?.ingredients.length ? editRecipe.ingredients : [""]
+  );
+  const [steps, setSteps] = useState<string[]>(
+    editRecipe?.steps.length ? editRecipe.steps : [""]
+  );
+  const [categories, setCategories] = useState<string[]>(editRecipe?.categories ?? []);
+  const [source, setSource] = useState(editRecipe?.source ?? "");
+  const [image, setImage] = useState<string | undefined>(editRecipe?.image);
   const [pasteMode, setPasteMode] = useState(false);
   const [pasteText, setPasteText] = useState("");
   const [urlMode, setUrlMode] = useState(false);
@@ -189,14 +196,25 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
     const cleanSteps = steps.filter((s) => s.trim());
     if (!title.trim() || cleanIngredients.length === 0) return;
 
-    saveRecipe({
-      title: title.trim(),
-      ingredients: cleanIngredients,
-      steps: cleanSteps,
-      categories,
-      source: source.trim() || undefined,
-      image,
-    });
+    if (isEditing && editRecipe) {
+      updateRecipe(editRecipe.id, {
+        title: title.trim(),
+        ingredients: cleanIngredients,
+        steps: cleanSteps,
+        categories,
+        source: source.trim() || undefined,
+        image,
+      });
+    } else {
+      saveRecipe({
+        title: title.trim(),
+        ingredients: cleanIngredients,
+        steps: cleanSteps,
+        categories,
+        source: source.trim() || undefined,
+        image,
+      });
+    }
     onSaved();
   }
 
@@ -211,7 +229,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-parchment/60">
           <h2 className="font-display text-2xl font-bold text-bark">
-            New Recipe
+            {isEditing ? "Edit Recipe" : "New Recipe"}
           </h2>
           <button
             onClick={onClose}
@@ -551,7 +569,7 @@ export function AddRecipeForm({ onClose, onSaved }: AddRecipeFormProps) {
             className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 bg-olive text-white font-semibold rounded-xl hover:bg-olive-light transition-colors shadow-md shadow-olive/20 hover:shadow-lg hover:shadow-olive/30"
           >
             <Save className="w-5 h-5" />
-            Save Recipe
+            {isEditing ? "Update Recipe" : "Save Recipe"}
           </button>
         </form>
       </div>

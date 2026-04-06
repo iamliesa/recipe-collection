@@ -26,6 +26,7 @@ export function App() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [editingRecipe, setEditingRecipe] = useState<Recipe | null>(null);
   const [showFilters, setShowFilters] = useState(false);
 
   const refreshRecipes = useCallback(() => {
@@ -62,6 +63,9 @@ export function App() {
         <RecipeDetail
           recipe={selectedRecipe}
           onBack={() => setSelectedRecipe(null)}
+          onEdit={(recipe) => {
+            setEditingRecipe(recipe);
+          }}
         />
       </div>
     );
@@ -243,12 +247,22 @@ export function App() {
         </>
       )}
 
-      {/* Add Recipe Modal */}
-      {showAddForm && (
+      {/* Add / Edit Recipe Modal */}
+      {(showAddForm || editingRecipe) && (
         <AddRecipeForm
-          onClose={() => setShowAddForm(false)}
+          editRecipe={editingRecipe ?? undefined}
+          onClose={() => {
+            setShowAddForm(false);
+            setEditingRecipe(null);
+          }}
           onSaved={() => {
             setShowAddForm(false);
+            if (editingRecipe) {
+              // Refresh the detail view with updated data
+              const updated = getRecipes().find((r) => r.id === editingRecipe.id);
+              if (updated) setSelectedRecipe(updated);
+              setEditingRecipe(null);
+            }
             refreshRecipes();
           }}
         />

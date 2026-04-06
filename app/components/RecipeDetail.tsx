@@ -1,21 +1,31 @@
-import { ArrowLeft, ChefHat, ListOrdered, UtensilsCrossed } from "lucide-react";
+import { ArrowLeft, ChefHat, ListOrdered, UtensilsCrossed, Pencil } from "lucide-react";
 import type { Recipe } from "../lib/recipes";
 
 interface RecipeDetailProps {
   recipe: Recipe;
   onBack: () => void;
+  onEdit: (recipe: Recipe) => void;
 }
 
-export function RecipeDetail({ recipe, onBack }: RecipeDetailProps) {
+export function RecipeDetail({ recipe, onBack, onEdit }: RecipeDetailProps) {
   return (
     <div className="max-w-2xl mx-auto modal-enter">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-2 text-bark-muted hover:text-olive transition-colors mb-8 group"
-      >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        <span className="text-sm font-medium">Back to recipes</span>
-      </button>
+      <div className="flex items-center justify-between mb-8">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-bark-muted hover:text-olive transition-colors group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span className="text-sm font-medium">Back to recipes</span>
+        </button>
+        <button
+          onClick={() => onEdit(recipe)}
+          className="flex items-center gap-2 px-4 py-2 bg-white border border-parchment/60 rounded-xl text-sm font-medium text-bark-muted hover:text-olive hover:border-olive/20 transition-colors"
+        >
+          <Pencil className="w-3.5 h-3.5" />
+          Edit
+        </button>
+      </div>
 
       {recipe.image ? (
         <div className="aspect-video rounded-2xl overflow-hidden mb-8 shadow-lg shadow-bark/10">
