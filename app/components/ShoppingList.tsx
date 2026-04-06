@@ -21,7 +21,7 @@ interface ShoppingListProps {
 }
 
 export function ShoppingList({ weekOffset }: ShoppingListProps) {
-  const [, setRefresh] = useState(0);
+  const [refreshKey, setRefreshKey] = useState(0);
   const [showChecked, setShowChecked] = useState(false);
 
   const recipes = getRecipes();
@@ -35,7 +35,7 @@ export function ShoppingList({ weekOffset }: ShoppingListProps) {
   const items = useMemo(
     () => buildShoppingList(plannedRecipes),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [plannedRecipeIds.join(",")]
+    [plannedRecipeIds.join(","), refreshKey]
   );
 
   const unchecked = items.filter((i) => !i.checked);
@@ -43,12 +43,12 @@ export function ShoppingList({ weekOffset }: ShoppingListProps) {
 
   function handleToggle(item: ShoppingItem) {
     toggleChecked(item.text);
-    setRefresh((n) => n + 1);
+    setRefreshKey((n) => n + 1);
   }
 
   function handleClearAll() {
     clearChecked();
-    setRefresh((n) => n + 1);
+    setRefreshKey((n) => n + 1);
   }
 
   if (plannedRecipes.length === 0) {
