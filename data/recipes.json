@@ -470,5 +470,33 @@
     "categories": ["Soups", "Healthy"],
     "source": "madamecuisine.de",
     "createdAt": "2026-04-06"
+  },
+  {
+    "id": "1749484800000",
+    "title": "Tomatenreis wie beim Griechen",
+    "servings": 4,
+    "ingredients": [
+      "1 Zwiebel",
+      "2 Knoblauchzehen",
+      "2 Strauchtomaten",
+      "2 EL Olivenol",
+      "1 EL Tomatenmark",
+      "250g Reis (Langkornreis)",
+      "300g passierte Tomaten",
+      "300ml Gemüsebruhe",
+      "1 TL Paprikapulver edelsuss",
+      "3 EL Gyros-Gewurz (oder Oregano, Thymian, Kreuzummel und Koriander)",
+      "Salz und Pfeffer",
+      "1 Prise Zucker"
+    ],
+    "steps": [
+      "Zwiebel und Knoblauch klein hacken. Tomaten wurfeln.",
+      "Olivenol in einem Topf erhitzen und Zwiebeln sowie Knoblauch andunsten. Tomatenmark unterruhren.",
+      "Reis, Tomaten, passierte Tomaten, Gemüsebruhe, Paprikapulver und Gyrosgewurz hinzufugen und aufkochen. Bei mittlerer Hitze mit Deckel 20-25 Minuten kocheln lassen, gelegentlich umruhren und bei Bedarf Wasser nachgiessen. Mit Salz, Pfeffer und Zucker abschmecken."
+    ],
+    "image": "https://www.gaumenfreundin.de/wp-content/uploads/2023/10/Tomatenreis-Gaumenfreundin-1.jpg",
+    "categories": ["Healthy", "Quick Meals"],
+    "source": "gaumenfreundin.de",
+    "createdAt": "2026-06-09"
   }
 ]
