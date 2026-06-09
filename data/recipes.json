@@ -687,5 +687,61 @@
     "categories": ["Snacks", "Quick Meals"],
     "source": "kochkarussell.com",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485500000",
+    "title": "Vegan Sweet Potato Burrito Bowl",
+    "servings": 4,
+    "ingredients": [
+      {
+        "label": "Roasted veggies",
+        "items": [
+          "2 medium sweet potatoes, peeled and cubed",
+          "1 red bell pepper, sliced",
+          "1 red onion, sliced",
+          "1 tbsp olive oil",
+          "1 tsp paprika",
+          "1 tsp garlic powder",
+          "Salt to taste"
+        ]
+      },
+      {
+        "label": "Black beans",
+        "items": [
+          "1 can (400g) black beans, drained",
+          "1 tsp chili powder",
+          "Salt to taste"
+        ]
+      },
+      {
+        "label": "Spicy tahini dressing",
+        "items": [
+          "2 tbsp tahini",
+          "1 tbsp lime juice",
+          "1 tsp sriracha or hot sauce",
+          "2-3 tbsp water to thin",
+          "Salt to taste"
+        ]
+      },
+      {
+        "label": "To serve",
+        "items": [
+          "Cooked rice (cilantro lime rice)",
+          "1 avocado, sliced",
+          "Corn kernels",
+          "Fresh cilantro"
+        ]
+      }
+    ],
+    "steps": [
+      "Preheat oven to 400°F (200°C). Peel the sweet potatoes and chop into large chunks. Toss with olive oil, paprika, garlic powder and salt. Slice the bell pepper and onion. Spread everything on a parchment-lined baking tray.",
+      "Roast for 30 minutes or until the potatoes are easily pierced with a fork.",
+      "During the last 5 minutes, drain the black beans (do not rinse). Add to a pan with chili powder and salt, saute until warm.",
+      "Whisk together all dressing ingredients until smooth.",
+      "Assemble bowls with a bed of rice. Top with roasted veggies, black beans, corn, and avocado. Drizzle with spicy tahini dressing and garnish with cilantro."
+    ],
+    "categories": ["Bowls", "Healthy", "Meal Prep"],
+    "source": "eatwithclarity.com",
+    "createdAt": "2026-06-09"
   }
 ]
