@@ -660,5 +660,32 @@
     "categories": ["Bowls", "Healthy", "Quick Meals"],
     "source": "familienkost.de",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485400000",
+    "title": "Schnelle Veggie Frikadellen Deluxe",
+    "servings": 8,
+    "ingredients": [
+      "1 grosse Zwiebel",
+      "250ml Milch",
+      "250g kernige Haferflocken (alternativ zarte und kernige gemischt)",
+      "2 Eier",
+      "140g geriebener Kase (z.B. Gouda)",
+      "2.5 TL Curry",
+      "1.5 TL Salz",
+      "Pfeffer",
+      "2 EL Sonnenblumenol",
+      "Ketchup zum Servieren"
+    ],
+    "steps": [
+      "Zwiebel fein wurfeln. Mit Milch, Haferflocken, Eiern, Kase, Curry und Salz in einer grossen Schussel vermischen. Mit Pfeffer abschmecken.",
+      "Aus der Masse Frikadellen formen. Pro Frikadelle einen gehauften Essloffel nehmen fur ca. handtellergrosse Portionen.",
+      "Jeweils vier Frikadellen in 1 EL Ol bei mittlerer Hitze anbraten, bis die Unterseite fest ist. Wenden und die zweite Seite ebenfalls anbraten.",
+      "Mit Ketchup servieren."
+    ],
+    "image": "https://kochkarussell.com/wp-content/uploads/2021/05/Vegetarische-Frikadellen-Deluxe-1.jpg",
+    "categories": ["Snacks", "Quick Meals"],
+    "source": "kochkarussell.com",
+    "createdAt": "2026-06-09"
   }
 ]
