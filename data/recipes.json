@@ -498,5 +498,34 @@
     "categories": ["Healthy", "Quick Meals"],
     "source": "gaumenfreundin.de",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749484900000",
+    "title": "Cremige Brokkoli Nudeln",
+    "servings": 3,
+    "ingredients": [
+      "300g Nudeln",
+      "500g Brokkoli",
+      "30g vegane Butter",
+      "25g Mehl",
+      "200ml ungesusste Hafermilch",
+      "150ml Hafercuisine",
+      "2 TL Gemüsebruhepulver",
+      "1 EL veganer Parmesan",
+      "50g Pinienkerne"
+    ],
+    "steps": [
+      "Nudeln nach Packungsanleitung kochen.",
+      "Pinienkerne ohne Ol in einer Pfanne bei hoher Hitze unter standigem Ruhren goldbraun rosten. Beiseite stellen.",
+      "Brokkoli waschen, in kleine Stucke schneiden und 10 Minuten kochen.",
+      "Butter in einem Topf schmelzen, Mehl dazugeben und verruhren.",
+      "Milch, Hafercuisine, Bruhepulver, Salz und veganen Parmesan unter Ruhren dazugeben. Aufkochen lassen, bis die Sosse andickt.",
+      "Den weichen Brokkoli mit einer Gabel zerdrucken (einige Stucke zum Garnieren aufheben), in die Sosse geben und mit Salz abschmecken.",
+      "Die gekochten Nudeln in die Sosse geben, vermischen und mit gerosteten Pinienkernen servieren."
+    ],
+    "image": "https://foodykani.de/wp-content/uploads/2023/05/Cremige-Brokkoli-Nudeln-scaled.jpg",
+    "categories": ["Pasta", "Healthy", "Quick Meals"],
+    "source": "foodykani.de",
+    "createdAt": "2026-06-09"
   }
 ]
