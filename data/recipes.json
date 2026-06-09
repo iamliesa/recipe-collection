@@ -562,5 +562,36 @@
     "categories": ["Soups", "Healthy"],
     "source": "foodykani.de",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485100000",
+    "title": "Veganes Kichererbsencurry (Chana Masala)",
+    "servings": 4,
+    "ingredients": [
+      "400g Kichererbsen (Dose, abgetropft)",
+      "2 Zwiebeln",
+      "25g Ingwer",
+      "2 Knoblauchzehen",
+      "1 grune Chili",
+      "800g Dosentomaten (ganze Tomaten)",
+      "1 EL Kokosol",
+      "1 TL Garam Masala",
+      "1 TL gemahlener Koriander",
+      "1/2 TL Kurkuma",
+      "1/4 TL Zimt",
+      "1 Lorbeerblatt",
+      "150ml Gemüsebruhe oder Wasser",
+      "Salz"
+    ],
+    "steps": [
+      "Kokosol in einer Pfanne erhitzen und die Zwiebeln bei niedriger Hitze ca. 3 Minuten glasig dunsten.",
+      "Ingwer, Knoblauch und grune Chili dazugeben und eine weitere Minute anbraten.",
+      "Die Dosentomaten hinzufugen und mit Salz, Pfeffer, Garam Masala, Koriander, Kurkuma, Zimt und Lorbeerblatt wurzen. Alles bei mittlerer Hitze ca. 10 Minuten einkochen, dann das Lorbeerblatt entfernen.",
+      "Gemüsebruhe oder Wasser dazugeben und die Mischung mit einem Stabmixer glatt purieren.",
+      "Die Kichererbsen hinzufugen und alles ca. 10 Minuten kocheln lassen. Mit Salz abschmecken."
+    ],
+    "categories": ["Bowls", "Healthy"],
+    "source": "zuckerjagdwurst.com",
+    "createdAt": "2026-06-09"
   }
 ]
