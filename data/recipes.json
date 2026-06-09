@@ -593,5 +593,41 @@
     "categories": ["Bowls", "Healthy"],
     "source": "zuckerjagdwurst.com",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485200000",
+    "title": "Blumenkohl-Korma Kokos-Curry",
+    "servings": 6,
+    "ingredients": [
+      "1 EL Kokosol (oder Olivenol)",
+      "1 Zwiebel, gewurfelt",
+      "4 Knoblauchzehen, fein gehackt",
+      "1 EL Ingwer, fein gehackt (ca. 2cm Stuck)",
+      "1.5 EL gelbes Currypulver (oder Garam Masala)",
+      "1 TL Kreuzummel",
+      "1 TL Kurkuma (optional, fur die Farbe)",
+      "150g Dosentomaten, gehackt (oder Passata)",
+      "1 Dose Kokosmilch (400ml)",
+      "75g Cashews",
+      "240ml Gemüsebruhe",
+      "1 TL Ahornsirup",
+      "3/4 TL Salz",
+      "1 Blumenkohl, in grosse Roschen geschnitten",
+      "Reis zum Servieren",
+      "Veganes Naan zum Servieren",
+      "Frischer Koriander oder Petersilie zum Garnieren",
+      "Sesamkorner zum Garnieren"
+    ],
+    "steps": [
+      "Ol in einem grossen Topf bei mittlerer Hitze erhitzen. Die Zwiebel darin ca. 3 Minuten glasig dunsten. Knoblauch und Ingwer dazugeben und 1 Minute anbraten. Currypulver, Kreuzummel und Kurkuma einruhren und kurz anrosten.",
+      "Dosentomaten, Kokosmilch und Cashews dazugeben. Aufkochen und ca. 5 Minuten kocheln lassen, dabei gelegentlich umruhren, bis die Cashews weich sind.",
+      "Die Mischung in einen Mixer geben. Gemüsebruhe, Salz und Ahornsirup hinzufugen und cremig purieren. Die Sosse zurück in den Topf giessen (oder einen Stabmixer verwenden).",
+      "Die Blumenkohlroschen hinzufugen und ca. 15 Minuten kocheln lassen, bis der Blumenkohl weich ist und die Sosse etwas eindickt. Bei Bedarf mit mehr Kokosmilch verdunnen.",
+      "Mit Reis und Naan servieren. Mit frischem Koriander und Sesamsamen garnieren."
+    ],
+    "image": "https://biancazapatka.com/wp-content/uploads/2020/03/cauliflower-coconut-korma-indian-curry.jpg",
+    "categories": ["Bowls", "Healthy"],
+    "source": "biancazapatka.com",
+    "createdAt": "2026-06-09"
   }
 ]
