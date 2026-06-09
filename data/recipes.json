@@ -527,5 +527,40 @@
     "categories": ["Pasta", "Healthy", "Quick Meals"],
     "source": "foodykani.de",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485000000",
+    "title": "Weisse Bohnensuppe mit Kartoffeln",
+    "servings": 4,
+    "ingredients": [
+      "600g weisse Bohnen (gekocht)",
+      "1 Zwiebel",
+      "2 Zehen Knoblauch",
+      "2 Kartoffeln, mittelgross",
+      "2 Mohren",
+      "1 Stange Sellerie",
+      "1 Liter Gemüsebruhe",
+      "150ml Mandelcuisine",
+      "1 TL Thymian, getrocknet",
+      "1/2 TL Rosmarin, getrocknet",
+      "2 TL Paprikapulver rosenscharf",
+      "1 EL Zitronensaft",
+      "2 Stangel Fruhlingszwiebeln",
+      "3 EL Ol",
+      "Salz und Pfeffer"
+    ],
+    "steps": [
+      "Zwiebel und Knoblauch schalen und fein wurfeln.",
+      "Kartoffeln, Mohren und Sellerie schalen und in kleine Wurfel schneiden.",
+      "3 EL Ol in einem grossen Topf erhitzen. Zwiebeln und Knoblauch 2 Minuten anbraten. Gemuse dazugeben und kurz mit anschwitzen.",
+      "Gemüsebruhe und Gewurze hinzufugen. 15-20 Minuten kocheln lassen, bis das Gemuse weich ist.",
+      "Nach 10 Minuten zwei Drittel der Bohnen dazugeben. Die restlichen Bohnen mit der Mandelcuisine im Mixer purieren.",
+      "Das Puree in die Suppe einruhren fur eine cremige Konsistenz.",
+      "3 Minuten kocheln lassen und mit Salz und Pfeffer abschmecken."
+    ],
+    "image": "https://foodykani.de/wp-content/uploads/2025/02/Weisse-Bohnensuppe-mit-Kartoffeln-1-scaled.jpg",
+    "categories": ["Soups", "Healthy"],
+    "source": "foodykani.de",
+    "createdAt": "2026-06-09"
   }
 ]
