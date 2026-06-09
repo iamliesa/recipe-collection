@@ -629,5 +629,36 @@
     "categories": ["Bowls", "Healthy"],
     "source": "biancazapatka.com",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485300000",
+    "title": "Blumenkohl Curry mit Kokosmilch",
+    "servings": 4,
+    "ingredients": [
+      "1 Blumenkohl (mittelgross)",
+      "1 Susskartoffel (gross)",
+      "3 EL Kokosol (oder Ghee)",
+      "1 EL Currypaste (gelb)",
+      "1 TL Kreuzummel",
+      "1 TL Koriander",
+      "1 TL Garam Masala",
+      "1 Stuck Ingwer (daumengross)",
+      "1 Knoblauchzehe",
+      "1/2 Zitrone",
+      "Salz",
+      "Pfeffer",
+      "400ml Kokosmilch",
+      "200g Tomaten in Stucken",
+      "Koriander (frisch)"
+    ],
+    "steps": [
+      "Blumenkohl waschen und in Roschen teilen. Susskartoffel schalen und wurfeln. Knoblauch und Ingwer fein hacken.",
+      "Kokosol erhitzen und die Susskartoffelwurfel mit Knoblauch und Ingwer anbraten. Gewurze und Currypaste einruhren, dann den Blumenkohl dazugeben und kurz mit anrosten.",
+      "Tomaten und Kokosmilch dazugeben und 15 Minuten kocheln lassen. Mit Salz und Zitronensaft abschmecken. Mit Reis oder einer Beilage nach Wahl servieren."
+    ],
+    "image": "https://www.familienkost.de/images/blumenkohl-curry-vegan.jpg",
+    "categories": ["Bowls", "Healthy", "Quick Meals"],
+    "source": "familienkost.de",
+    "createdAt": "2026-06-09"
   }
 ]
