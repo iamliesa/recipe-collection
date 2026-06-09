@@ -743,5 +743,34 @@
     "categories": ["Bowls", "Healthy", "Meal Prep"],
     "source": "eatwithclarity.com",
     "createdAt": "2026-06-09"
+  },
+  {
+    "id": "1749485600000",
+    "title": "Easy Homemade Harissa",
+    "servings": "24 tbsp",
+    "ingredients": [
+      "7 dried New Mexico chiles or Guajillo chiles",
+      "6 oz jarred roasted red peppers, drained, rinsed and dried (2 large peppers)",
+      "2 tbsp tomato paste",
+      "4 large garlic cloves, peeled",
+      "1 tsp caraway seeds, toasted and ground",
+      "2 tsp ground coriander",
+      "2 tsp ground cumin",
+      "1 tsp smoked paprika",
+      "1/2 tsp cayenne pepper",
+      "Kosher salt to taste",
+      "Juice of 1 large lemon (2 tbsp fresh lemon juice)",
+      "2 tbsp extra virgin olive oil (plus more for storage)"
+    ],
+    "steps": [
+      "Place dried chiles in a heat-safe bowl, cover with hot water, and let sit 30 minutes until tender. Drain, then remove stems and seeds.",
+      "Transfer chiles to a food processor. Add tomato paste, roasted red peppers, garlic, ground caraway, coriander, cumin, smoked paprika, cayenne, salt, and lemon juice.",
+      "Run food processor while drizzling olive oil from the top. Stop to scrape sides as needed until reaching desired paste consistency.",
+      "Transfer to a clean mason jar, top with a thin layer of olive oil, seal tightly, and refrigerate."
+    ],
+    "image": "https://www.themediterraneandish.com/wp-content/uploads/2020/07/harissa-paste-recipe-7.jpg",
+    "categories": ["Snacks", "Meal Prep"],
+    "source": "themediterraneandish.com",
+    "createdAt": "2026-06-09"
   }
 ]
